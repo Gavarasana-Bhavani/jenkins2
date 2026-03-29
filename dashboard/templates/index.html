@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Automated Jenkins Failure Detection and Resolution</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:        #0d1117;
+  --surface:   #161b22;
+  --card:      #1c2128;
+  --border:    #30363d;
+  --accent:    #e36209;
+  --green:     #2ea043;
+  --green-dim: rgba(46,160,67,.15);
+  --blue:      #388bfd;
+  --blue-dim:  rgba(56,139,253,.15);
+  --yellow:    #d29922;
+  --yellow-dim:rgba(210,153,34,.15);
+  --red:       #f85149;
+  --red-dim:   rgba(248,81,73,.15);
+  --purple:    #a371f7;
+  --text:      #c9d1d9;
+  --text-dim:  #8b949e;
+  --mono:      'IBM Plex Mono', monospace;
+  --sans:      'IBM Plex Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Top nav ── */
+nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: .7rem;
+}
+.nav-icon {
+  width: 28px; height: 28px;
+  background: var(--accent);
+  border-radius: 6px;
+  display: grid; place-items: center;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+.nav-title {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.nav-pills { display: flex; gap: .5rem; }
+.pill {
+  font-family: var(--mono);
+  font-size: .65rem;
+  padding: .2rem .7rem;
+  border-radius: 20px;
+  border: 1px solid;
+}
+.pill-green { color: var(--green); border-color: rgba(46,160,67,.4); background: var(--green-dim); }
+.pill-blue  { color: var(--blue);  border-color: rgba(56,139,253,.4); background: var(--blue-dim); }
+
+/* ── Layout ── */
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: calc(100vh - 56px);
+}
+
+/* ── Sidebar ── */
+aside {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+.sidebar-section { margin-bottom: 1.8rem; }
+.sidebar-heading {
+  font-family: var(--mono);
+  font-size: .65rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: .8rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Failure type list */
+.ft-item {
+  display: flex; align-items: center; gap: .65rem;
+  padding: .5rem .7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .15s;
+  margin-bottom: .25rem;
+  border: 1px solid transparent;
+}
+.ft-item:hover { background: rgba(56,139,253,.07); border-color: rgba(56,139,253,.2); }
+.ft-icon { font-size: .95rem; flex-shrink: 0; }
+.ft-label { font-size: .8rem; color: var(--text-dim); font-family: var(--mono); }
+
+/* Stat boxes */
+.stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+.stat-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .8rem;
+  text-align: center;
+}
+.stat-val { font-size: 1.4rem; font-weight: 700; font-family: var(--mono); }
+.stat-key { font-size: .62rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; }
+.sv-accent { color: var(--accent); }
+.sv-green  { color: var(--green); }
+.sv-blue   { color: var(--blue); }
+.sv-purple { color: var(--purple); }
+
+/* Model comparison */
+.model-row {
+  display: flex; align-items: center; gap: .6rem;
+  margin-bottom: .55rem;
+  font-family: var(--mono); font-size: .72rem;
+}
+.model-name { width: 110px; color: var(--text-dim); }
+.model-bar-bg { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.model-bar-fill { height: 100%; border-radius: 3px; transition: width .9s ease; }
+.model-pct { width: 44px; text-align: right; color: var(--text); }
+.star { color: var(--yellow); margin-left: .2rem; }
+
+/* ── Main ── */
+.main-content { padding: 2rem; overflow-y: auto; }
+
+/* ── Analyzer card ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+.card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 1.3rem;
+  border-bottom: 1px solid var(--border);
+}
+.card-title {
+  font-size: .78rem; font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-family: var(--mono);
+}
+.card-body { padding: 1.3rem; }
+
+/* ── Textarea ── */
+.log-area-wrap { position: relative; }
+textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: .8rem;
+  padding: .9rem 1rem;
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.65;
+  outline: none;
+  transition: border-color .2s;
+}
+textarea:focus { border-color: var(--accent); }
+textarea::placeholder { color: #3d444d; }
+
+.action-row {
+  display: flex; align-items: center; gap: .8rem;
+  margin-top: .9rem; flex-wrap: wrap;
+}
+button {
+  font-family: var(--sans); font-weight: 600;
+  font-size: .82rem; border: none;
+  border-radius: 6px; cursor: pointer;
+  padding: .55rem 1.2rem;
+  transition: all .15s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #f08030; }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--text); }
+
+.sample-label { font-size: .72rem; color: var(--text-dim); font-family: var(--mono); }
+.sample-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+.chip {
+  font-family: var(--mono); font-size: .67rem;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-dim); border-radius: 4px;
+  padding: .22rem .55rem; cursor: pointer;
+  transition: all .15s;
+}
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ── Result ── */
+.result-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+}
+
+.result-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem;
+}
+.result-label {
+  font-family: var(--mono); font-size: .65rem;
+  color: var(--text-dim); text-transform: uppercase;
+  letter-spacing: .08em; margin-bottom: .5rem;
+}
+.result-value {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--accent); line-height: 1.3;
+}
+
+.conf-row {
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: .68rem;
+  color: var(--text-dim); margin-top: .8rem; margin-bottom: .25rem;
+}
+.conf-bar-bg {
+  height: 5px; background: var(--border); border-radius: 3px; overflow: hidden;
+}
+.conf-bar-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), #f0a060);
+  transition: width .6s ease;
+}
+
+.proba-list { margin-top: .5rem; }
+.proba-row {
+  display: flex; align-items: center; gap: .5rem;
+  font-family: var(--mono); font-size: .7rem; margin-bottom: .35rem;
+}
+.proba-lbl { color: var(--text-dim); width: 190px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.proba-bar-bg { flex:1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.proba-bar-fill { height: 100%; background: var(--blue); border-radius: 2px; transition: width .5s ease; }
+.proba-pct { color: var(--text); width: 36px; text-align: right; }
+
+/* ── Resolution ── */
+.res-head {
+  display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem;
+}
+.res-icon { font-size: 1.3rem; }
+.res-title { font-size: 1rem; font-weight: 700; }
+.sev-badge {
+  font-family: var(--mono); font-size: .62rem;
+  padding: .18rem .6rem; border-radius: 4px; margin-left: auto;
+}
+.sev-High     { background: var(--red-dim);    color: var(--red); }
+.sev-Critical { background: rgba(255,60,60,.2); color: #ff4444; }
+.sev-Medium   { background: var(--yellow-dim); color: var(--yellow); }
+.sev-Unknown  { background: rgba(139,148,158,.1); color: var(--text-dim); }
+
+.res-desc { font-size: .84rem; color: var(--text-dim); margin-bottom: 1.2rem; line-height: 1.6; }
+
+.steps-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-bottom: 1.2rem;
+}
+.step {
+  display: flex; gap: .65rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: .75rem .9rem;
+  animation: fadeUp .25s ease forwards; opacity: 0;
+}
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(6px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.step-num { font-family: var(--mono); font-size: .68rem; color: var(--accent); font-weight: 600; flex-shrink: 0; padding-top: .05rem; }
+.step-txt { font-size: .8rem; line-height: 1.55; color: var(--text); }
+
+.cmd-heading { font-family: var(--mono); font-size: .65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; }
+.cmd-block {
+  font-family: var(--mono); font-size: .78rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  border-radius: 6px; padding: .6rem .9rem;
+  color: #7ee787; margin-bottom: .35rem;
+  cursor: pointer; transition: background .15s;
+  display: flex; align-items: center; gap: .5rem;
+}
+.cmd-block:hover { background: rgba(46,160,67,.06); }
+.cmd-copy { margin-left: auto; font-size: .62rem; color: var(--text-dim); }
+
+/* ── Empty ── */
+.empty {
+  text-align: center; padding: 2.5rem 1rem; color: var(--text-dim);
+}
+.empty-icon { font-size: 2rem; opacity: .35; margin-bottom: .6rem; }
+.empty-txt { font-family: var(--mono); font-size: .78rem; }
+
+/* ── Spinner ── */
+.spin {
+  width: 14px; height: 14px; border: 2px solid var(--border);
+  border-top-color: var(--accent); border-radius: 50%;
+  animation: rot .5s linear infinite; display: inline-block; vertical-align: middle;
+}
+@keyframes rot { to { transform: rotate(360deg); } }
+
+/* ── Toast ── */
+#toast {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  background: var(--card); border: 1px solid var(--green);
+  color: var(--green); font-family: var(--mono); font-size: .75rem;
+  padding: .6rem 1.1rem; border-radius: 6px;
+  opacity: 0; transform: translateY(8px);
+  transition: all .25s; z-index: 9999;
+  pointer-events: none;
+}
+#toast.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { border-right: none; border-bottom: 1px solid var(--border); }
+  .result-grid, .steps-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-icon">⚙</div>
+    <span class="nav-title">Automated Jenkins Failure Detection and Resolution</span>
+  </div>
+  <div class="nav-pills">
+    <span class="pill pill-green" id="modelPill">● Loading model…</span>
+    <span class="pill pill-blue">Machine Learning · NLP</span>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside>
+
+    <!-- Failure Categories -->
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Failure Categories</div>
+      <div id="ftList"></div>
+    </div>
+
+    <!-- Model Stats -->
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Model Performance</div>
+      <div class="stat-row" id="statRow">
+        <div class="stat-box"><div class="stat-val sv-accent">—</div><div class="stat-key">Accuracy</div></div>
+        <div class="stat-box"><div class="stat-val sv-green">—</div><div class="stat-key">F1 Score</div></div>
+        <div class="stat-box"><div class="stat-val sv-blue">—</div><div class="stat-key">CV Mean</div></div>
+        <div class="stat-box"><div class="stat-val sv-purple">7</div><div class="stat-key">Categories</div></div>
+      </div>
+    </div>
+
+    <!-- Model Comparison -->
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Model Comparison</div>
+      <div id="modelComp"></div>
+    </div>
+
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <div class="main-content">
+
+    <!-- Build Log Input -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Build Log Analyzer</span>
+        <span style="font-family:var(--mono);font-size:.68rem;color:var(--text-dim)">Paste Jenkins console output below</span>
+      </div>
+      <div class="card-body">
+        <textarea id="logInput" placeholder="[ERROR] BUILD FAILURE&#10;[ERROR] COMPILATION ERROR&#10;[ERROR] /src/Main.java:[12,5] ';' expected&#10;&#10;— paste your Jenkins build log here —"></textarea>
+        <div class="action-row">
+          <button class="btn-primary" id="analyzeBtn" onclick="analyze()">⚡ Analyze Failure</button>
+          <button class="btn-outline" onclick="clearAll()">Clear</button>
+          <span class="sample-label">Quick samples →</span>
+        </div>
+        <div class="sample-chips" id="chips"></div>
+      </div>
+    </div>
+
+    <!-- Prediction Result -->
+    <div class="card" id="resultCard">
+      <div class="card-header">
+        <span class="card-title">Prediction Result</span>
+        <span id="confBadge" style="display:none;font-family:var(--mono);font-size:.68rem;color:var(--green)"></span>
+      </div>
+      <div class="card-body" id="resultBody">
+        <div class="empty">
+          <div class="empty-icon">🔍</div>
+          <div class="empty-txt">No analysis yet — paste a build log and click Analyze</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resolution Guidance -->
+    <div class="card" id="resCard" style="display:none">
+      <div class="card-header">
+        <span class="card-title">Resolution Guidance</span>
+        <span id="sevBadge" class="sev-badge"></span>
+      </div>
+      <div class="card-body" id="resBody"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const SAMPLES = {
+  "Compilation": `ERROR: BUILD FAILURE\n[ERROR] COMPILATION ERROR\n[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected\n[ERROR] cannot find symbol: method getValue()\nBuild step marked build as failure`,
+  "Test Failure": `Tests run: 15, Failures: 3, Errors: 0, Skipped: 0\nFAILED: testUserLogin(com.app.UserTest)\njava.lang.AssertionError: expected:<200> but was:<401>\nBUILD FAILURE`,
+  "Quality Gate": `ERROR: QUALITY GATE FAILURE\nCondition: Coverage on New Code < 80%\nCondition: Bugs > 0\nProject failed the quality gate.\nBUILD FAILURE`,
+  "JaCoCo": `FAILED: JaCoCo Coverage Check\nLine coverage: 62% (minimum required: 80%)\nBranch coverage: 55% (minimum required: 70%)\nBUILD FAILURE`,
+  "SonarQube": `ERROR: SonarQube server connection refused\nCould not connect to SonarQube at http://sonarqube:9000\nConnection timeout after 30000ms\nBUILD FAILURE`,
+  "Docker": `ERROR: Docker build failed\nStep 5/10 : RUN mvn clean install\nThe command returned a non-zero code: 1\nFinished: FAILURE`,
+  "Deployment": `ERROR: Deployment to EC2 failed\nSSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22\nCheck security group inbound rules.\nFinished: FAILURE`,
+};
+
+const FT_ICONS = {
+  compilation_failure:"🔴", test_failure:"🟠", code_quality_gate:"🟡",
+  jacoco_coverage_failure:"🟡", sonarqube_error:"🔵",
+  docker_build_failure:"🐳", deployment_error:"🚀"
+};
+const MODEL_COLORS = {"Random Forest":"#e36209","Decision Tree":"#388bfd","SVM":"#a371f7"};
+
+// Build sample chips
+const chipsEl = document.getElementById("chips");
+Object.entries(SAMPLES).forEach(([name, log]) => {
+  const c = document.createElement("span");
+  c.className = "chip"; c.textContent = name;
+  c.onclick = () => { document.getElementById("logInput").value = log; analyze(); };
+  chipsEl.appendChild(c);
+});
+
+// Load failure types in sidebar
+async function loadFailureTypes() {
+  try {
+    const r = await fetch("/api/failure_types");
+    const types = await r.json();
+    const el = document.getElementById("ftList");
+    const sampleMap = {
+      "compilation_failure":"Compilation","test_failure":"Test Failure",
+      "code_quality_gate":"Quality Gate","jacoco_coverage_failure":"JaCoCo",
+      "sonarqube_error":"SonarQube","docker_build_failure":"Docker","deployment_error":"Deployment"
+    };
+    el.innerHTML = types.map(t => `
+      <div class="ft-item" onclick="loadSample('${sampleMap[t]}')">
+        <span class="ft-icon">${FT_ICONS[t]||"⚠️"}</span>
+        <span class="ft-label">${t.replace(/_/g,' ')}</span>
+      </div>`).join('');
+  } catch(e){}
+}
+
+function loadSample(name) {
+  if (SAMPLES[name]) { document.getElementById("logInput").value = SAMPLES[name]; analyze(); }
+}
+
+// Load model stats
+async function loadModelStats() {
+  try {
+    const r = await fetch("/api/model_stats");
+    const data = await r.json();
+    const results = data.results;
+    const best = data.best_model;
+    const rf = results["Random Forest"];
+
+    // Update stat boxes
+    document.getElementById("statRow").innerHTML = `
+      <div class="stat-box"><div class="stat-val sv-accent">${rf.accuracy}%</div><div class="stat-key">Accuracy</div></div>
+      <div class="stat-box"><div class="stat-val sv-green">${rf.f1_score}</div><div class="stat-key">F1 Score</div></div>
+      <div class="stat-box"><div class="stat-val sv-blue">${rf.cv_mean}%</div><div class="stat-key">CV Mean</div></div>
+      <div class="stat-box"><div class="stat-val sv-purple">7</div><div class="stat-key">Categories</div></div>`;
+
+    // Update nav pill
+    document.getElementById("modelPill").textContent = `● ${best} Active`;
+
+    // Model comparison bars
+    document.getElementById("modelComp").innerHTML = Object.entries(results).map(([name, r]) => `
+      <div class="model-row">
+        <div class="model-name">${name}${name===best?'<span class="star">★</span>':''}</div>
+        <div class="model-bar-bg">
+          <div class="model-bar-fill" style="width:${r.accuracy}%;background:${MODEL_COLORS[name]||'#888'}"></div>
+        </div>
+        <div class="model-pct">${r.accuracy}%</div>
+      </div>`).join('');
+  } catch(e) {}
+}
+
+async function analyze() {
+  const log = document.getElementById("logInput").value.trim();
+  if (!log) { toast("⚠ Please paste a build log first"); return; }
+
+  const btn = document.getElementById("analyzeBtn");
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Analyzing…';
+
+  document.getElementById("resultBody").innerHTML = `<div class="empty"><div class="spin"></div><div class="empty-txt" style="margin-top:.7rem">Running ML classifier…</div></div>`;
+  document.getElementById("confBadge").style.display = "none";
+  document.getElementById("resCard").style.display = "none";
+
+  try {
+    const resp = await fetch("/api/predict", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({log})
+    });
+    const data = await resp.json();
+    if (data.error) throw new Error(data.error);
+    renderResult(data);
+    renderResolution(data.resolution);
+    toast("✔ Analysis complete");
+  } catch(e) {
+    document.getElementById("resultBody").innerHTML = `<div class="empty"><div class="empty-icon">❌</div><div class="empty-txt">${e.message}</div></div>`;
+  } finally {
+    btn.disabled = false; btn.innerHTML = '⚡ Analyze Failure';
+  }
+}
+
+function renderResult(data) {
+  const badge = document.getElementById("confBadge");
+  badge.style.display = "block";
+  badge.textContent = `✔ ${data.confidence}% confidence`;
+
+  const probsHTML = data.top_probs.map(p => `
+    <div class="proba-row">
+      <div class="proba-lbl">${p.label.replace(/_/g,' ')}</div>
+      <div class="proba-bar-bg"><div class="proba-bar-fill" style="width:${p.prob}%"></div></div>
+      <div class="proba-pct">${p.prob}%</div>
+    </div>`).join('');
+
+  document.getElementById("resultBody").innerHTML = `
+    <div class="result-grid">
+      <div class="result-box">
+        <div class="result-label">Detected Failure Type</div>
+        <div class="result-value">${data.prediction.replace(/_/g,' ')}</div>
+        <div class="conf-row"><span>Confidence</span><span>${data.confidence}%</span></div>
+        <div class="conf-bar-bg"><div class="conf-bar-fill" style="width:${data.confidence}%"></div></div>
+      </div>
+      <div class="result-box">
+        <div class="result-label">Top Prediction Probabilities</div>
+        <div class="proba-list">${probsHTML}</div>
+      </div>
+    </div>`;
+}
+
+function renderResolution(res) {
+  const card = document.getElementById("resCard");
+  const badge = document.getElementById("sevBadge");
+  badge.textContent = `${res.severity} Severity`;
+  badge.className = `sev-badge sev-${res.severity}`;
+  card.style.display = "block";
+
+  const stepsHTML = res.steps.map((s,i) => `
+    <div class="step" style="animation-delay:${i*0.04}s">
+      <span class="step-num">0${i+1}</span>
+      <span class="step-txt">${s}</span>
+    </div>`).join('');
+
+  const cmdsHTML = (res.commands||[]).length ? `
+    <div class="cmd-heading">Recommended Commands</div>
+    ${res.commands.map(c => `
+      <div class="cmd-block" onclick="copyCmd('${c.replace(/'/g,"\\'")}')">
+        <span>$ ${c}</span>
+        <span class="cmd-copy">click to copy</span>
+      </div>`).join('')}` : '';
+
+  document.getElementById("resBody").innerHTML = `
+    <div class="res-head">
+      <span class="res-icon">${res.icon||'🔧'}</span>
+      <span class="res-title">${res.title}</span>
+    </div>
+    <div class="res-desc">${res.description}</div>
+    <div class="steps-grid">${stepsHTML}</div>
+    ${cmdsHTML}`;
+}
+
+function copyCmd(cmd) {
+  navigator.clipboard.writeText(cmd).then(() => toast("📋 Copied to clipboard"));
+}
+
+function clearAll() {
+  document.getElementById("logInput").value = "";
+  document.getElementById("resultBody").innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><div class="empty-txt">No analysis yet — paste a build log and click Analyze</div></div>`;
+  document.getElementById("resCard").style.display = "none";
+  document.getElementById("confBadge").style.display = "none";
+}
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2500);
+}
+
+loadFailureTypes();
+loadModelStats();
+</script>
+</body>
+</html>

@@ -1,0 +1,1536 @@
+log_snippet,failure_type,build_duration_sec,failed_stage,retry_count,agent
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,58,Analysis,0,master
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,451,Deploy,0,master
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,532,Analysis,2,agent-1
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Service.java:[34,10] incompatible types: String cannot be converted to int
+[INFO] BUILD FAILURE
+[ERROR] Failed to execute goal compile",compilation_failure,253,Package,0,agent-2
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,117,Package,3,agent-1
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,35,Package,3,master
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,335,Deploy,2,agent-3
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,444,Build,3,agent-3
+"ERROR: Remote deployment script failed
+scp: /opt/app/deploy.sh: Permission denied
+Exit code 1
+BUILD FAILURE",deployment_error,372,Checkout,3,agent-1
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,470,Build,2,agent-1
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,165,Checkout,0,agent-2
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,18,Deploy,2,agent-2
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,40,Deploy,2,agent-2
+"JaCoCo: Coverage below minimum threshold
+Instruction coverage: 58.3% (required: 75%)
+Method coverage: 67.1% (required: 80%)
+[ERROR] BUILD FAILURE",jacoco_coverage_failure,192,Package,0,agent-2
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,120,Checkout,2,master
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,297,Build,0,master
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,673,Checkout,0,master
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,694,Deploy,1,master
+"ERROR: Remote deployment script failed
+scp: /opt/app/deploy.sh: Permission denied
+Exit code 1
+BUILD FAILURE",deployment_error,395,Package,0,agent-1
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,572,Deploy,2,agent-1
+"junit.framework.AssertionFailedError: Login should return token
+Expected: not null  but was: null
+Tests run: 12, Failures: 1, Errors: 0
+Finished: FAILURE",test_failure,597,Test,3,agent-1
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,675,Checkout,3,master
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,574,Package,1,master
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,30,Checkout,1,agent-2
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Service.java:[34,10] incompatible types: String cannot be converted to int
+[INFO] BUILD FAILURE
+[ERROR] Failed to execute goal compile",compilation_failure,397,Build,0,agent-3
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,110,Analysis,0,agent-3
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,611,Package,1,master
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,612,Build,1,master
+"BUILD FAILED
+[ERROR] symbol not found
+[ERROR] package com.example does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile
+Exit code: 1",compilation_failure,157,Build,2,master
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,277,Test,1,agent-1
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,132,Package,1,agent-2
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,90,Package,0,agent-2
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,463,Deploy,3,agent-1
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,200,Deploy,1,master
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,196,Analysis,0,agent-2
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,251,Analysis,1,agent-2
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,678,Test,0,master
+"junit.framework.AssertionFailedError: Login should return token
+Expected: not null  but was: null
+Tests run: 12, Failures: 1, Errors: 0
+Finished: FAILURE",test_failure,97,Build,0,agent-1
+"junit.framework.AssertionFailedError: Login should return token
+Expected: not null  but was: null
+Tests run: 12, Failures: 1, Errors: 0
+Finished: FAILURE",test_failure,98,Analysis,2,agent-3
+"SonarQube Quality Gate FAILED
+New Bugs: 3
+New Vulnerabilities: 1
+New Code Smells: 12
+Technical Debt: 3h 20min
+Build step marked build as failure",code_quality_gate,358,Test,0,agent-2
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,240,Analysis,0,agent-1
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,165,Analysis,0,agent-2
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,48,Deploy,2,agent-2
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,685,Checkout,3,master
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,149,Package,3,agent-2
+"SonarQube Quality Gate FAILED
+New Bugs: 3
+New Vulnerabilities: 1
+New Code Smells: 12
+Technical Debt: 3h 20min
+Build step marked build as failure",code_quality_gate,98,Analysis,0,agent-1
+"ERROR [build 6/9] COPY target/*.jar app.jar
+failed to solve: failed to read dockerfile
+open Dockerfile: no such file or directory
+BUILD FAILURE",docker_build_failure,323,Build,1,agent-3
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,160,Deploy,0,agent-1
+"ERROR [build 6/9] COPY target/*.jar app.jar
+failed to solve: failed to read dockerfile
+open Dockerfile: no such file or directory
+BUILD FAILURE",docker_build_failure,125,Test,2,agent-1
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,406,Package,3,agent-2
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,311,Checkout,3,agent-1
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,337,Test,2,agent-1
+"BUILD FAILED
+[ERROR] symbol not found
+[ERROR] package com.example does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile
+Exit code: 1",compilation_failure,129,Test,3,agent-2
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,176,Test,2,agent-3
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,285,Checkout,3,agent-1
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,264,Build,1,agent-1
+"FAILED testSaveUser -- AssertionError: Database record not found
+Tests run: 8, Failures: 2
+[ERROR] There are test failures.
+[INFO] BUILD FAILURE",test_failure,467,Analysis,1,master
+"maven-jacoco-plugin: Coverage check failed
+Overall Instructions: 61% (threshold: 80%)
+Overall Lines: 63% (threshold: 80%)
+[INFO] BUILD FAILURE",jacoco_coverage_failure,271,Checkout,0,agent-2
+"FAILED testSaveUser -- AssertionError: Database record not found
+Tests run: 8, Failures: 2
+[ERROR] There are test failures.
+[INFO] BUILD FAILURE",test_failure,264,Build,0,agent-1
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,627,Checkout,3,agent-3
+"FAILED testSaveUser -- AssertionError: Database record not found
+Tests run: 8, Failures: 2
+[ERROR] There are test failures.
+[INFO] BUILD FAILURE",test_failure,635,Package,0,master
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,692,Analysis,3,master
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,512,Analysis,1,master
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,144,Analysis,0,agent-2
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,435,Test,1,master
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,95,Package,2,agent-3
+"SonarQube Quality Gate FAILED
+New Bugs: 3
+New Vulnerabilities: 1
+New Code Smells: 12
+Technical Debt: 3h 20min
+Build step marked build as failure",code_quality_gate,715,Package,0,agent-1
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,534,Checkout,2,master
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,362,Build,2,agent-2
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,378,Test,2,agent-3
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,128,Test,3,agent-3
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,178,Deploy,3,agent-3
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,445,Deploy,3,agent-2
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,132,Deploy,1,master
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,259,Test,3,agent-2
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,566,Analysis,2,agent-3
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,611,Deploy,1,agent-3
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,428,Checkout,1,agent-1
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,190,Package,3,agent-3
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Service.java:[34,10] incompatible types: String cannot be converted to int
+[INFO] BUILD FAILURE
+[ERROR] Failed to execute goal compile",compilation_failure,157,Deploy,0,agent-1
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,356,Build,2,agent-2
+"ERROR: Remote deployment script failed
+scp: /opt/app/deploy.sh: Permission denied
+Exit code 1
+BUILD FAILURE",deployment_error,645,Checkout,0,agent-1
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,90,Checkout,2,agent-2
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,625,Analysis,2,agent-3
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,462,Analysis,3,master
+"junit.framework.AssertionFailedError: Login should return token
+Expected: not null  but was: null
+Tests run: 12, Failures: 1, Errors: 0
+Finished: FAILURE",test_failure,214,Deploy,3,master
+"ERROR: QUALITY GATE FAILURE
+Condition: Coverage on New Code < 80%
+Condition: Bugs > 0
+Project failed the quality gate.
+BUILD FAILURE",code_quality_gate,521,Test,1,master
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,158,Checkout,0,agent-3
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,68,Deploy,2,agent-1
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,202,Test,3,agent-2
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,377,Deploy,3,agent-1
+"SonarQube Quality Gate FAILED
+New Bugs: 3
+New Vulnerabilities: 1
+New Code Smells: 12
+Technical Debt: 3h 20min
+Build step marked build as failure",code_quality_gate,560,Analysis,2,agent-1
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Service.java:[34,10] incompatible types: String cannot be converted to int
+[INFO] BUILD FAILURE
+[ERROR] Failed to execute goal compile",compilation_failure,74,Build,0,agent-1
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,462,Checkout,1,master
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,219,Checkout,2,agent-3
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,169,Checkout,3,agent-1
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,155,Build,0,agent-3
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,447,Checkout,0,agent-1
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,239,Build,3,agent-1
+"maven-jacoco-plugin: Coverage check failed
+Overall Instructions: 61% (threshold: 80%)
+Overall Lines: 63% (threshold: 80%)
+[INFO] BUILD FAILURE",jacoco_coverage_failure,616,Checkout,2,agent-1
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,318,Build,2,agent-2
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,89,Checkout,3,agent-1
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,634,Build,2,agent-2
+"junit.framework.AssertionFailedError: Login should return token
+Expected: not null  but was: null
+Tests run: 12, Failures: 1, Errors: 0
+Finished: FAILURE",test_failure,321,Deploy,0,agent-2
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,264,Test,2,master
+"FAILED testSaveUser -- AssertionError: Database record not found
+Tests run: 8, Failures: 2
+[ERROR] There are test failures.
+[INFO] BUILD FAILURE",test_failure,640,Checkout,3,master
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,26,Deploy,0,agent-3
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,160,Checkout,0,agent-2
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,385,Package,0,master
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,101,Test,3,agent-3
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,265,Package,3,agent-2
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,693,Build,0,agent-1
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,485,Test,0,master
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,592,Deploy,0,agent-1
+"ERROR [build 6/9] COPY target/*.jar app.jar
+failed to solve: failed to read dockerfile
+open Dockerfile: no such file or directory
+BUILD FAILURE",docker_build_failure,718,Analysis,0,agent-1
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,527,Package,3,master
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,582,Deploy,0,master
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,321,Checkout,0,agent-3
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,183,Analysis,0,master
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,235,Analysis,3,master
+"SonarQube Scanner error
+ERROR: java.io.IOException: Failed to parse response from SonarQube
+HTTP 503 Service Unavailable
+BUILD FAILURE",sonarqube_error,241,Package,0,agent-3
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,299,Analysis,2,agent-2
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,468,Test,3,agent-3
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,569,Checkout,0,agent-2
+"JaCoCo: Coverage below minimum threshold
+Instruction coverage: 58.3% (required: 75%)
+Method coverage: 67.1% (required: 80%)
+[ERROR] BUILD FAILURE",jacoco_coverage_failure,259,Package,3,agent-2
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,111,Package,3,agent-3
+"SonarQube Quality Gate FAILED
+New Bugs: 3
+New Vulnerabilities: 1
+New Code Smells: 12
+Technical Debt: 3h 20min
+Build step marked build as failure",code_quality_gate,479,Test,2,agent-3
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,687,Deploy,0,agent-3
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,85,Build,2,agent-3
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,103,Test,3,agent-2
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,123,Deploy,2,agent-2
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,258,Package,2,agent-1
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,148,Package,2,agent-2
+"ERROR [build 6/9] COPY target/*.jar app.jar
+failed to solve: failed to read dockerfile
+open Dockerfile: no such file or directory
+BUILD FAILURE",docker_build_failure,647,Checkout,0,agent-3
+"maven-jacoco-plugin: Coverage check failed
+Overall Instructions: 61% (threshold: 80%)
+Overall Lines: 63% (threshold: 80%)
+[INFO] BUILD FAILURE",jacoco_coverage_failure,571,Analysis,3,agent-3
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,278,Analysis,2,agent-3
+"ERROR [build 6/9] COPY target/*.jar app.jar
+failed to solve: failed to read dockerfile
+open Dockerfile: no such file or directory
+BUILD FAILURE",docker_build_failure,584,Checkout,2,agent-1
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,361,Checkout,1,agent-2
+"FAILED testSaveUser -- AssertionError: Database record not found
+Tests run: 8, Failures: 2
+[ERROR] There are test failures.
+[INFO] BUILD FAILURE",test_failure,86,Deploy,2,agent-3
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,258,Test,0,agent-1
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,153,Analysis,1,agent-1
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,250,Package,2,agent-2
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,709,Package,3,master
+"ERROR: QUALITY GATE FAILURE
+Condition: Coverage on New Code < 80%
+Condition: Bugs > 0
+Project failed the quality gate.
+BUILD FAILURE",code_quality_gate,375,Test,3,master
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,235,Build,3,agent-1
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,701,Deploy,0,master
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,107,Test,2,master
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,145,Package,0,master
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,436,Deploy,1,agent-3
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,531,Analysis,3,agent-2
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,335,Package,3,master
+"ERROR: QUALITY GATE FAILURE
+Condition: Coverage on New Code < 80%
+Condition: Bugs > 0
+Project failed the quality gate.
+BUILD FAILURE",code_quality_gate,268,Build,0,agent-2
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,59,Test,3,master
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,588,Analysis,1,agent-2
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,297,Package,0,agent-2
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,425,Package,0,master
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,179,Test,3,master
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,94,Deploy,2,agent-2
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,286,Checkout,1,master
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,613,Analysis,1,agent-1
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,664,Analysis,2,agent-1
+"ERROR: Remote deployment script failed
+scp: /opt/app/deploy.sh: Permission denied
+Exit code 1
+BUILD FAILURE",deployment_error,529,Test,1,master
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Service.java:[34,10] incompatible types: String cannot be converted to int
+[INFO] BUILD FAILURE
+[ERROR] Failed to execute goal compile",compilation_failure,311,Checkout,1,agent-1
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,53,Checkout,2,agent-3
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,404,Checkout,2,agent-3
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,211,Deploy,0,agent-1
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,558,Test,3,agent-3
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,547,Package,1,agent-3
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,504,Checkout,0,master
+"maven-jacoco-plugin: Coverage check failed
+Overall Instructions: 61% (threshold: 80%)
+Overall Lines: 63% (threshold: 80%)
+[INFO] BUILD FAILURE",jacoco_coverage_failure,650,Checkout,0,agent-2
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,494,Deploy,2,master
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,371,Analysis,2,agent-3
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,368,Package,2,master
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,629,Test,2,agent-1
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,308,Analysis,1,master
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,77,Analysis,2,agent-1
+"ERROR: Remote deployment script failed
+scp: /opt/app/deploy.sh: Permission denied
+Exit code 1
+BUILD FAILURE",deployment_error,59,Deploy,3,agent-3
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,374,Deploy,1,agent-2
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,405,Package,3,agent-3
+"ERROR: Remote deployment script failed
+scp: /opt/app/deploy.sh: Permission denied
+Exit code 1
+BUILD FAILURE",deployment_error,505,Deploy,1,agent-2
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,586,Analysis,1,master
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,587,Deploy,2,agent-1
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,537,Deploy,0,agent-2
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,124,Build,3,agent-3
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,490,Package,3,agent-3
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,703,Deploy,2,master
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,433,Analysis,3,agent-3
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,480,Test,3,master
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,687,Package,1,agent-3
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,423,Test,1,agent-2
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,57,Test,2,agent-1
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,705,Package,3,agent-3
+"SonarQube Scanner error
+ERROR: java.io.IOException: Failed to parse response from SonarQube
+HTTP 503 Service Unavailable
+BUILD FAILURE",sonarqube_error,317,Deploy,2,agent-1
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,700,Deploy,2,agent-2
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,67,Build,2,agent-2
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,282,Build,2,agent-1
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,209,Checkout,0,master
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,60,Test,2,agent-2
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,125,Analysis,0,master
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,169,Analysis,0,master
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,296,Checkout,0,master
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,85,Package,1,agent-2
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,665,Build,1,agent-2
+"ERROR: QUALITY GATE FAILURE
+Condition: Coverage on New Code < 80%
+Condition: Bugs > 0
+Project failed the quality gate.
+BUILD FAILURE",code_quality_gate,621,Deploy,1,agent-1
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,78,Build,3,master
+"SonarQube Scanner error
+ERROR: java.io.IOException: Failed to parse response from SonarQube
+HTTP 503 Service Unavailable
+BUILD FAILURE",sonarqube_error,227,Package,1,agent-2
+"ERROR [build 6/9] COPY target/*.jar app.jar
+failed to solve: failed to read dockerfile
+open Dockerfile: no such file or directory
+BUILD FAILURE",docker_build_failure,294,Deploy,2,agent-3
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,468,Package,0,agent-1
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,526,Package,0,agent-2
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,602,Build,3,agent-1
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,166,Package,0,agent-3
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,286,Test,3,agent-1
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,482,Test,1,master
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,306,Deploy,3,agent-2
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,21,Build,1,master
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,123,Analysis,2,master
+"JaCoCo: Coverage below minimum threshold
+Instruction coverage: 58.3% (required: 75%)
+Method coverage: 67.1% (required: 80%)
+[ERROR] BUILD FAILURE",jacoco_coverage_failure,614,Analysis,3,agent-1
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,691,Checkout,1,agent-1
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,359,Deploy,3,agent-2
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,585,Test,0,master
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,444,Deploy,3,agent-1
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,385,Checkout,2,agent-3
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,577,Build,2,master
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,420,Deploy,3,agent-2
+"ERROR: QUALITY GATE FAILURE
+Condition: Coverage on New Code < 80%
+Condition: Bugs > 0
+Project failed the quality gate.
+BUILD FAILURE",code_quality_gate,563,Deploy,1,agent-2
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,708,Package,1,agent-1
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,475,Test,1,agent-3
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,101,Package,1,agent-1
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,511,Deploy,1,agent-3
+"error building image: error building at STEP
+RUN npm install: exit status 1
+npm ERR! code ENOENT
+npm ERR! syscall open
+Finished: FAILURE",docker_build_failure,350,Checkout,0,master
+"SonarQube Quality Gate FAILED
+New Bugs: 3
+New Vulnerabilities: 1
+New Code Smells: 12
+Technical Debt: 3h 20min
+Build step marked build as failure",code_quality_gate,244,Deploy,0,agent-1
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,579,Checkout,3,agent-1
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,660,Package,1,agent-2
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,270,Checkout,3,agent-2
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,243,Checkout,1,master
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,682,Build,2,master
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Service.java:[34,10] incompatible types: String cannot be converted to int
+[INFO] BUILD FAILURE
+[ERROR] Failed to execute goal compile",compilation_failure,657,Build,3,agent-1
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,125,Deploy,1,master
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,680,Test,1,agent-2
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,234,Test,3,agent-2
+"SonarQube Scanner error
+ERROR: java.io.IOException: Failed to parse response from SonarQube
+HTTP 503 Service Unavailable
+BUILD FAILURE",sonarqube_error,131,Deploy,0,master
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,315,Test,2,master
+"SonarQube Quality Gate FAILED
+New Bugs: 3
+New Vulnerabilities: 1
+New Code Smells: 12
+Technical Debt: 3h 20min
+Build step marked build as failure",code_quality_gate,403,Test,1,master
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,689,Checkout,2,agent-3
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,294,Build,0,agent-3
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,261,Deploy,3,master
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,599,Analysis,1,agent-1
+"BUILD FAILED
+[ERROR] symbol not found
+[ERROR] package com.example does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile
+Exit code: 1",compilation_failure,174,Build,2,agent-1
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,333,Checkout,0,agent-3
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,422,Package,3,agent-3
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,313,Analysis,0,agent-3
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,477,Checkout,1,agent-2
+"WARN: SonarQube analysis failed
+ERROR: Not authorized. Provide a user token or verify credentials.
+HTTP 401 Unauthorized
+BUILD FAILURE",sonarqube_error,247,Deploy,0,master
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,209,Test,1,agent-1
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,558,Test,3,master
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,171,Deploy,0,agent-2
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,294,Analysis,3,agent-1
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,463,Analysis,1,agent-3
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,427,Deploy,2,agent-2
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,300,Checkout,2,agent-3
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,466,Test,1,agent-1
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,510,Test,2,agent-1
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Service.java:[34,10] incompatible types: String cannot be converted to int
+[INFO] BUILD FAILURE
+[ERROR] Failed to execute goal compile",compilation_failure,567,Deploy,1,agent-3
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,693,Analysis,0,master
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,252,Test,2,master
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Service.java:[34,10] incompatible types: String cannot be converted to int
+[INFO] BUILD FAILURE
+[ERROR] Failed to execute goal compile",compilation_failure,211,Build,3,agent-2
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,661,Test,2,agent-1
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,322,Package,2,master
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,479,Test,3,agent-2
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,87,Deploy,0,agent-2
+"FAILED testSaveUser -- AssertionError: Database record not found
+Tests run: 8, Failures: 2
+[ERROR] There are test failures.
+[INFO] BUILD FAILURE",test_failure,579,Deploy,3,agent-1
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,463,Package,2,agent-1
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,698,Package,2,master
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,144,Test,2,master
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,138,Deploy,1,agent-3
+"ERROR: QUALITY GATE FAILURE
+Condition: Coverage on New Code < 80%
+Condition: Bugs > 0
+Project failed the quality gate.
+BUILD FAILURE",code_quality_gate,439,Analysis,2,master
+"DEPLOY FAILED
+aws: error: Unable to locate credentials
+Configure AWS CLI credentials or attach IAM role to instance.
+BUILD FAILURE",deployment_error,634,Build,2,agent-1
+"QUALITY GATE STATUS: FAILED
+Bugs: 5 (ERROR threshold: 0)
+Vulnerabilities: 2 (ERROR threshold: 0)
+Code Smells: 23
+Finished: FAILURE",code_quality_gate,460,Build,2,master
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,461,Deploy,2,agent-3
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,565,Build,2,agent-2
+"JaCoCo: Coverage below minimum threshold
+Instruction coverage: 58.3% (required: 75%)
+Method coverage: 67.1% (required: 80%)
+[ERROR] BUILD FAILURE",jacoco_coverage_failure,434,Deploy,1,agent-1
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,483,Checkout,2,agent-2
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,440,Deploy,0,agent-3
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,686,Test,2,agent-1
+"BUILD FAILED
+[ERROR] symbol not found
+[ERROR] package com.example does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile
+Exit code: 1",compilation_failure,378,Build,2,agent-1
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,420,Build,2,master
+"ERROR: Quality gate check failed
+Condition 'Reliability Rating' failed: actual value D is worse than E
+Condition 'Security Rating' failed
+Finished: FAILURE",code_quality_gate,708,Analysis,3,agent-2
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,32,Checkout,2,agent-2
+"JaCoCo: Coverage below minimum threshold
+Instruction coverage: 58.3% (required: 75%)
+Method coverage: 67.1% (required: 80%)
+[ERROR] BUILD FAILURE",jacoco_coverage_failure,285,Deploy,0,agent-2
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,663,Deploy,0,master
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,304,Analysis,3,agent-3
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,625,Checkout,0,agent-2
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,92,Deploy,1,agent-1
+"BUILD FAILED
+[ERROR] symbol not found
+[ERROR] package com.example does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile
+Exit code: 1",compilation_failure,700,Analysis,1,agent-2
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,100,Build,2,master
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,320,Package,3,agent-2
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,439,Test,2,agent-1
+"ERROR: SonarQube analysis failed
+Project key not found: com.example:my-app
+Please check sonar.projectKey configuration
+Finished: FAILURE",sonarqube_error,133,Checkout,1,agent-2
+"Tests run: 20, Failures: 1, Errors: 2
+FAILED: testCalculateTotal(PaymentTest)
+java.lang.AssertionError: expected:<100> but was:<90>
+[INFO] BUILD FAILURE",test_failure,219,Analysis,2,agent-3
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,249,Checkout,2,master
+"ERROR: Docker build failed
+Step 5/10 : RUN mvn clean install
+The command '/bin/sh -c mvn clean install' returned a non-zero code: 1
+Finished: FAILURE",docker_build_failure,164,Test,1,agent-2
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,144,Package,2,agent-1
+"JaCoCo: Coverage below minimum threshold
+Instruction coverage: 58.3% (required: 75%)
+Method coverage: 67.1% (required: 80%)
+[ERROR] BUILD FAILURE",jacoco_coverage_failure,131,Analysis,0,agent-2
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,498,Build,3,agent-2
+"SonarQube Quality Gate FAILED
+New Bugs: 3
+New Vulnerabilities: 1
+New Code Smells: 12
+Technical Debt: 3h 20min
+Build step marked build as failure",code_quality_gate,360,Analysis,2,master
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,702,Deploy,2,master
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,133,Checkout,1,agent-3
+"BUILD FAILED
+[ERROR] symbol not found
+[ERROR] package com.example does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile
+Exit code: 1",compilation_failure,82,Build,2,agent-2
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,285,Package,0,master
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,230,Deploy,1,agent-1
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,403,Test,1,agent-3
+"junit.framework.AssertionFailedError: Login should return token
+Expected: not null  but was: null
+Tests run: 12, Failures: 1, Errors: 0
+Finished: FAILURE",test_failure,424,Deploy,2,agent-1
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,534,Build,1,master
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,313,Package,2,master
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,194,Checkout,3,agent-2
+"ERROR: BUILD FAILURE
+[ERROR] COMPILATION ERROR
+[ERROR] /src/main/java/com/app/Main.java:[12,5] ';' expected
+[ERROR] cannot find symbol: method getValue()
+Build step 'Invoke top-level Maven targets' marked build as failure",compilation_failure,47,Test,0,agent-2
+"COMPILATION ERROR
+[ERROR] /src/UserController.java:[55] class, interface, or enum expected
+[ERROR] 3 errors
+[INFO] BUILD FAILURE
+Finished: FAILURE",compilation_failure,34,Checkout,2,agent-3
+"ERROR: QUALITY GATE FAILURE
+Condition: Coverage on New Code < 80%
+Condition: Bugs > 0
+Project failed the quality gate.
+BUILD FAILURE",code_quality_gate,262,Deploy,3,master
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,494,Checkout,1,agent-2
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,534,Package,0,agent-3
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,207,Package,2,master
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,520,Checkout,0,agent-1
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,398,Build,0,agent-3
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,541,Checkout,3,master
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,649,Package,2,agent-2
+"junit.framework.AssertionFailedError: Login should return token
+Expected: not null  but was: null
+Tests run: 12, Failures: 1, Errors: 0
+Finished: FAILURE",test_failure,209,Test,0,master
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,331,Analysis,0,agent-3
+"Kubernetes deployment failed
+Error from server: deployments.apps not found
+kubectl: error: context deadline exceeded
+Finished: FAILURE",deployment_error,384,Checkout,0,master
+"ERROR: SonarQube server connection refused
+Could not connect to SonarQube at http://sonarqube:9000
+Connection timeout after 30000ms
+BUILD FAILURE",sonarqube_error,665,Analysis,2,master
+"JaCoCo: Coverage below minimum threshold
+Instruction coverage: 58.3% (required: 75%)
+Method coverage: 67.1% (required: 80%)
+[ERROR] BUILD FAILURE",jacoco_coverage_failure,591,Test,0,agent-2
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,70,Package,2,agent-2
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,624,Deploy,2,master
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,31,Test,0,agent-3
+"junit.framework.AssertionFailedError: Login should return token
+Expected: not null  but was: null
+Tests run: 12, Failures: 1, Errors: 0
+Finished: FAILURE",test_failure,570,Checkout,2,agent-1
+"FAILED: JaCoCo Coverage Check
+Line coverage: 62% (minimum required: 80%)
+Branch coverage: 55% (minimum required: 70%)
+BUILD FAILURE
+Finished: FAILURE",jacoco_coverage_failure,718,Build,2,agent-2
+"ERROR: JaCoCo minimum coverage not met
+Current line coverage: 71.2%, required: 85%
+Current branch coverage: 60.0%, required: 75%
+BUILD FAILURE",jacoco_coverage_failure,29,Deploy,1,agent-3
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,194,Build,3,agent-2
+"BUILD FAILURE
+There are test failures.
+Failed tests:
+  testPayment(PaymentTest): expected true but was false
+  testOrder(OrderTest): NullPointerException
+Finished: FAILURE",test_failure,308,Build,3,agent-3
+"Tomcat deployment failed
+HTTP 403 Forbidden from Tomcat Manager
+Check credentials in Maven settings.xml
+Finished: FAILURE",deployment_error,686,Deploy,3,agent-2
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,220,Build,2,agent-3
+"ERROR: javac returned exit code 1
+[ERROR] Source option 8 is no longer supported. Use 11 or later.
+[ERROR] Target option 8 is no longer supported.
+Build step marked build as failure",compilation_failure,605,Analysis,1,master
+"SonarScanner failed to execute
+ERROR: Error during SonarQube Scanner execution
+Failed to upload report: HTTP 500 Internal Server Error
+Finished: FAILURE",sonarqube_error,650,Test,1,agent-1
+"BUILD FAILED
+[ERROR] symbol not found
+[ERROR] package com.example does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile
+Exit code: 1",compilation_failure,448,Analysis,3,agent-1
+"QUALITY GATE FAILED
+Security Hotspots: 4 unreviewed
+Duplications on New Code: 15.5%
+Maintainability Rating: D
+BUILD FAILURE",code_quality_gate,598,Package,3,agent-3
+"Step 3/8 : FROM openjdk:17-jdk-slim
+ERROR: failed to pull image openjdk:17-jdk-slim
+network timeout
+Finished: FAILURE",docker_build_failure,688,Deploy,2,agent-1
+"JaCoCo Coverage Gate Failed
+Class coverage: 55% < 70% minimum
+Complexity coverage: 48% < 65% minimum
+Finished: FAILURE",jacoco_coverage_failure,210,Package,1,agent-1
+"ERROR: Deployment to EC2 failed
+SSH connection refused: ec2-54-xx-xx-xx.compute.amazonaws.com port 22
+Check security group inbound rules.
+Finished: FAILURE",deployment_error,677,Build,2,agent-3
+"Docker build error
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock
+Is the docker daemon running?
+BUILD FAILURE",docker_build_failure,248,Analysis,2,master
+"Tests run: 15, Failures: 3, Errors: 0, Skipped: 0
+FAILED: testUserLogin(com.app.UserTest)
+java.lang.AssertionError: expected:<200> but was:<401>
+BUILD FAILURE",test_failure,255,Deploy,2,agent-2
+"JaCoCo: Coverage below minimum threshold
+Instruction coverage: 58.3% (required: 75%)
+Method coverage: 67.1% (required: 80%)
+[ERROR] BUILD FAILURE",jacoco_coverage_failure,496,Package,3,agent-3
